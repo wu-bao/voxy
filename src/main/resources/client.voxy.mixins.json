@@ -6,11 +6,6 @@
   "plugin": "me.cortex.voxy.client.mixin.ClientVoxyMixinPlugin",
   "compatibilityLevel": "JAVA_17",
   "client": [
-//? if fabric {
-    "flashback.MixinFlashbackMeta",
-    "flashback.MixinFlashbackRecorder",
-//? }
-
     "iris.CustomUniformsAccessor",
     "iris.IrisRenderingPipelineAccessor",
     "iris.MixinIris",
@@ -45,7 +40,6 @@
 //? if 1.21.1
     "minecraft.MixinWindow",
     
-    "nvidium.MixinRenderPipeline",
     "sodium.AccessorChunkTracker",
     "sodium.AccessorSodiumWorldRenderer",
     "sodium.MixinChunkJobQueue",

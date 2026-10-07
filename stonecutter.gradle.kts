@@ -7,7 +7,7 @@ stonecutter {
         inherit("json5", "json")
     }
     // Activate the variant for local verification
-    active("1.20.1-fabric")
+    active("1.21.1-fabric")
     gradle.rootProject.allprojects.forEach { p ->
         if (p.name.startsWith("1.20.1")) {
             val ext = p.extensions.findByType(dev.kikugie.stonecutter.build.StonecutterBuildExtension::class.java)

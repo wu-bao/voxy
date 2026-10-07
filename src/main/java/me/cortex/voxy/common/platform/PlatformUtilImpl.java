@@ -15,11 +15,6 @@ import net.minecraftforge.fml.loading.LoadingModList;
 import net.minecraftforge.fml.loading.moddiscovery.ModFileInfo;
 import net.minecraftforge.api.distmarker.Dist;
 //?} else {
-import com.moulberry.flashback.Flashback;
-import com.moulberry.flashback.playback.ReplayServer;
-import com.moulberry.flashback.record.FlashbackMeta;
-import me.cortex.voxy.common.Logger;
-import me.cortex.voxy.client.compat.IFlashbackMeta;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 //?}
@@ -70,30 +65,7 @@ public class PlatformUtilImpl implements PlatformUtil {
 
     @Override
     public Path getReplayStoragePath(boolean flashbackInstalled) {
-        //? if fabric {
-        if (!flashbackInstalled) {
-            return null;
-        }
-        ReplayServer replayServer = Flashback.getReplayServer();
-        if (replayServer != null) {
-            FlashbackMeta meta = replayServer.getMetadata();
-            if (meta != null) {
-                var path = ((IFlashbackMeta)meta).getVoxyPath();
-                if (path != null) {
-                    Logger.info("Flashback replay server exists and meta exists");
-                    if (path.exists()) {
-                        Logger.info("Flashback voxy path exists in filesystem, using this as lod data source");
-                        return path.toPath();
-                    } else {
-                        Logger.warn("Flashback meta had voxy path saved but path doesnt exist");
-                    }
-                }
-            }
-        }
         return null;
-        //? } else {
-        return null;
-        //? }
     }
 
     @Override
